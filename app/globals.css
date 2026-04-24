@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.link:active {
+  scale: 0.9;
+  background-color: #9ca3af;
+  border-radius: 8px;
+}
+
+@media (width <= 48rem) {
+  .logo {
+    margin: 0 auto;
+  }
+}
+
+.hero {
+  background:
+    linear-gradient(to bottom, transparent, #000000e5),
+    url("/apartment.jpg") center/cover no-repeat;
+}
+.sectionapartments {
+  background: linear-gradient(black, gray, rgba(0, 0, 255, 0.586), #ff00008e);
+}
+
+@media (width <= 50rem) {
+  .div2 {
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 8px;
+  }
+  .div2 * {
+    width: 90%;
+    margin: 0 auto;
+  } 
+  .section1 
+  {
+
+  }
+  .one {
+    width: 90%;
+    display: flex;
+    flex-direction: column; 
+    margin: 0 auto;  
+    overflow: hidden;
+    border-radius: 25px;
+  } 
+  .hell1 
+  {
+    width: 100%;
+  } 
+  .hell2 
+  {
+    width:100%
+  } 
+  .detail{
+    height: fit-content; 
+    
+  }
+}
+/* @media (max-width <= 50rem) {
+  .
+  }
+} */
