@@ -1,9 +1,9 @@
 "use client";
-import { TApartment, gover } from "@/app/components/data/apartments";
+import { Toffer, gover } from "@/app/components/data/apartments";
 import React, { useState } from "react";
 import type { FormEvent } from "react";
 const Addoffer = () => {
-  const [formdata, setformdata] = useState<TApartment>({
+  const [formdata, setformdata] = useState<Toffer>({
     aftermoney: "",
     previousmoney: "",
     location: "",
