@@ -1,4 +1,0 @@
-to make the card class like modern web make that :
-bg-white/20 
-backdrop-blur-lg 
-border border-white/30

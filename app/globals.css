@@ -21,18 +21,81 @@ html {
   .logo {
     margin: 0 auto;
   }
+} 
+
+.offer{
+  background: url("/bacgground.jpg") no-repeat center/cover ;
 }
 
 .hero {
   background:
-    linear-gradient(to bottom, transparent, #000000e5),
-    url("/apartment.jpg") center/cover no-repeat;
-}
-.sectionapartments {
-  background: linear-gradient(black, gray, rgba(0, 0, 255, 0.586), #ff00008e);
-}
 
-@media (width <= 50rem) {
+    url("/bacjground2.jpg") center/cover no-repeat;
+}
+/*------------------------------------------------------------------------*/ 
+/* this add class to the addunit folder */
+.add 
+{
+  background: linear-gradient( to right bottom , pink , #ff000042 , #0080003e , #0000ff40 , #ee00ff4d ,pink ) ;  
+  position: relative ;
+}
+/* .circleone 
+{
+  width: 600px;
+  height: 600px;
+  border-radius: 100%;
+  background-color: #0414fa97; 
+  position: absolute;
+  left: 10px;
+  top: 50px; 
+  filter: blur(120px); 
+  opacity: 0.7;
+} 
+
+.circletwo 
+{
+  width: 600px;
+  height: 600px;
+  border-radius: 100%;
+  background-color: #fa04046a; 
+  position: absolute;
+  right: 5px;
+  bottom: 50px; 
+  filter: blur(120px); 
+  opacity: 0.7;
+} */
+/*------------------------------------------------------------------------*/ 
+/*------------------------------------------------------------------------*/ 
+.herotitle
+{
+  background: linear-gradient(90deg ,  #e107a7c8 , #be0e7e , #0acf14c6 , #0066ff );
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  background-clip:text ; 
+  color: transparent;
+  animation: hero1 12s linear infinite;
+}
+@keyframes hero1  
+{
+  0% 
+  {
+    background-position: 0% ;
+  }
+  25% 
+  {
+    background-position: 50% ;
+  } 
+  50% 
+  {
+    background-position: 100%;
+  }
+  100% 
+  {
+    background-position: 0% ;
+  }
+}
+/*------------------------------------------------------------------------*/ 
+/* @media (width <= 50rem) {
   .div2 {
     display: flex;
     flex-direction: column; 
@@ -46,14 +109,7 @@ html {
   {
 
   }
-  .one {
-    width: 90%;
-    display: flex;
-    flex-direction: column; 
-    margin: 0 auto;  
-    overflow: hidden;
-    border-radius: 25px;
-  } 
+
   .hell1 
   {
     width: 100%;
@@ -64,10 +120,6 @@ html {
   } 
   .detail{
     height: fit-content; 
-    
-  }
-}
-/* @media (max-width <= 50rem) {
-  .
-  }
-} */
+
+  } */
+/* }  */

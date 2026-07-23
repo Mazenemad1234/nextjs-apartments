@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant", 
+  subsets: ["latin"],
+  weight: ["300", "400", "600"],
   display: "swap",
 });
 
@@ -19,10 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={geistSans.variable}>
-      <body>
-        {children}
-      </body>
+    <html lang="en"  data-scroll-behavior="smooth" className={`${geistSans.variable} ${cormorant.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }

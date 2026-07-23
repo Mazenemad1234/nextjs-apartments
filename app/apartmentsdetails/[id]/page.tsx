@@ -1,6 +1,7 @@
-import { apartments } from "@/app/components/data/apartments";
 import Iconsdetails from "@/app/components/iconsdetails/Iconsdetails";
 import { ImageSlider } from "@/app/components/Imagesslider";
+import { getapartment } from "@/lib/getapartment";
+import { MappedApartment } from "@/lib/mapapartment";
 import {
   CookingPot,
   Sofa,
@@ -14,13 +15,13 @@ import {
 import Link from "next/link";
 
 type ParamsType = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 async function ApartmentDetails({ params }: ParamsType) {
   const { id } = await params;
-  const apartment = apartments.find((x) => x.id === Number(id));
-
+  const apartments:MappedApartment[] = await getapartment(); 
+  const apartment = apartments.find((apt) => apt.id === Number(id));
   if (!apartment) throw new Error("Apartment not found");
 
   return (
@@ -55,16 +56,16 @@ async function ApartmentDetails({ params }: ParamsType) {
           <p className="text-2xl font-bold text-white border-b border-gray-700 pb-4 mb-2">
             Apartment Details
           </p>
-          <Iconsdetails  icon={MapPin} text1="Location" text2={apartment.location}/>
+          <Iconsdetails icon={MapPin} text1="Location" text2={apartment.location}/>
           <Iconsdetails icon={Tag} text1="Type" text2={apartment.type} /> 
           <Iconsdetails icon={Banknote} text1="Monthly Rent" text2={`${apartment.price.toLocaleString()} EGP`} color="green"/>  
           <Iconsdetails icon={Ruler} text1="Space" text2={apartment.space}/>  
           <Iconsdetails icon={BedDouble} text1="Bedrooms" text2={apartment.bedrooms}/>  
           <Iconsdetails icon={Bath} text1="Bathrooms" text2={apartment.bathrooms}/>  
           <Iconsdetails icon={CookingPot} text1="Kitchens" text2={apartment.kitchens}/>  
-          <Iconsdetails icon={Sofa} text1="Livingrooms" text2={apartment.livingRooms}/>  
+          <Iconsdetails icon={Sofa} text1="Livingrooms" text2={apartment.livingrooms}/>  
           <Link
-            href={apartment.mapUrl}
+            href={apartment.mapurl}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 text-center py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium transition-colors duration-300"
