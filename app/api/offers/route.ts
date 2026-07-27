@@ -116,7 +116,7 @@ export async function POST(request: Request) {
 }
 
 export async function GET() {
-  const { data, error } = await supabase.from("offersimage").select(`
+  const { data, error } = await supabase.from("offers").select(`
       *,
       offersimage (
       offerimages
