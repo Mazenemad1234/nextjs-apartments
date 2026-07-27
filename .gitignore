@@ -47,4 +47,3 @@ next-env.d.ts
 *.png
 *.gif
 *.webp
-/public/pictures/
