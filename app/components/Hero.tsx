@@ -20,14 +20,14 @@ function Hero({ apartments_region }:{ apartments_region: string[] }) {
   };
 
   return (
-    <div className="relative hero flex flex-1">
-      <div className="absolute bg-black/50 inset-0" />
-      <div className="flex w-screen flex-col justify-center items-center gap-6 z-10">
-        <p className="herotitle mx-auto text-5xl font-bold italic">
-          welcome to our website
+    <div className="relative hero flex flex-1 flex-shrink-0 ">
+      <div className="absolute bg-black/20 inset-0" />
+      <div className="flex w-[80%] mx-auto flex-col justify-center items-center gap-6 z-10 ">
+        <p className="herotitle mx-auto md:text-4xl text-2xl font-semibold ">
+          Discover Your Next Home
         </p>
-        <div className="flex flex-row gap-4 items-center justify-center">
-          <div className="relative w-[300px]">
+        <div className="flex flex-row gap-4 items-center justify-center mx-auto ">
+          <div className="relative md:w-[300px] w-[200px]">
             <input
               type="text"
               placeholder="Search the Apartment"

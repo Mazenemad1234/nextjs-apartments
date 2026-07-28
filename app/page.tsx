@@ -31,7 +31,7 @@ export default async function Page({
 
   return (
     <>
-      <div className="w-full h-screen flex flex-col">
+      <div className="w-full md:h-screen flex flex-col h-[360px]">
         <Header />
         <Hero apartments_region = {apartments_region}/>
       </div>

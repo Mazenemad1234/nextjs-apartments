@@ -1,9 +1,10 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Sofa, Bath, BedDouble } from "lucide-react"; 
-import {gover  } from "@/app/components/data/apartments" 
+import { Sofa, Bath, BedDouble } from "lucide-react";
+import { gover } from "@/app/components/data/apartments";
 import { MappedApartment } from "@/lib/mapapartment";
-
+import { useState } from "react";
 
 type Searchparams = {
   type?: string;
@@ -14,8 +15,6 @@ type Searchparams = {
   maxprice?: string;
 };
 
-
-
 function Section({
   searchparam,
   apartments,
@@ -23,7 +22,6 @@ function Section({
   searchparam: Searchparams;
   apartments: MappedApartment[];
 }) {
-  
   const filterapartments = apartments.filter((apart) => {
     const kitchensnum = searchparam.kitchens
       ? apart.kitchens === Number(searchparam.kitchens)
@@ -53,39 +51,38 @@ function Section({
       maxpricevalue
     );
   });
-
+  const [more, setmore] = useState<number>(5);
   if (!gover.length) {
     return <div className="text-center py-20">No apartments found</div>;
   }
 
   return (
-    <div className="min-h-screen py-16 bg-red-200">
+    <div className="min-h-screen py-16 bg-gray-700">
       <div className="text-center pb-16">
         <h1 className="text-4xl font-bold text-gray-900 mb-3">
           Find Your Perfect Home
         </h1>
-        <p className="text-gray-500">
-          Explore the best apartments across Egypt
-        </p>
+        <p className="text-white">Explore the best apartments across Egypt</p>
       </div>
 
-      {gover.map((title) => (
+      {gover.slice(0, more).map((title) => (
         <section key={title} id="apartments" className="mb-16">
           <div className="flex items-center gap-4 p-6">
-            <h2 className="text-xl font-bold text-slate-800">{title}</h2>
+            <h2 className="text-xl font-bold text-green-400">{title}</h2>
             <div className="flex-1 h-px bg-slate-800" />
           </div>
 
-          <div className="flex gap-5 overflow-x-auto [scrollbar-width:none] pb-4">
+          <div className="flex gap-5 overflow-x-auto [scrollbar-width:none] [scroll-behavior:auto] pb-4">
             {filterapartments
               .filter((apt) => apt.title === title)
+              .slice(0, more)
               .map((apartment) => (
                 <Link
                   key={apartment.id}
                   href={`/apartmentsdetails/${apartment.id}`}
-                  className="group flex-shrink-0 no-underline py-3 pl-3"
+                  className="group flex-shrink-0 no-underline py-3 pl-3 "
                 >
-                  <div className="w-[340px] rounded-2xl overflow-hidden bg-white border hover:scale-105 transition-all duration-700">
+                  <div className="md:w-[340px] w-[300px] flex-grow rounded-2xl overflow-hidden bg-white border hover:scale-105 transition-all duration-700">
                     <div className="relative h-44 overflow-hidden">
                       <Image
                         src={apartment.images[0]}
@@ -159,9 +156,18 @@ function Section({
           </div>
         </section>
       ))}
+      {(more < gover.length) && (
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => setmore((prev) => prev + 5)}
+            className="bg-blue-800 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition"
+          >
+            View More
+          </button>
+        </div>
+      )}
     </div>
   );
 }
 
 export default Section;
-

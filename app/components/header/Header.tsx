@@ -99,7 +99,7 @@ export default function Header() {
       {/* sidebar for small screens */}
       <div className="md:hidden">
         {value && (
-          <div className="absolute top-16 one w-52 bg-gray-200 flex flex-col text-center rounded-ee-lg">
+          <div className="absolute top-16 one w-52 bg-gray-200 flex flex-col text-center rounded-ee-lg z-20">
             <Link
               className="link border-b-2 border-gray-300 p-3 duration-300"
               href="#apartments"
